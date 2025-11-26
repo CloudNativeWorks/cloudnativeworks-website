@@ -9,7 +9,7 @@ const ServiceItem = ({ title, description }) => (
 
 const Services = () => {
     return (
-        <section id="services" className="section" style={{ background: 'rgba(15, 23, 42, 0.5)' }}>
+        <section id="services" className="section" style={{ background: 'var(--bg-secondary)' }}>
             <div className="container">
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4rem', alignItems: 'center' }}>
                     <div style={{ flex: 1, minWidth: '300px' }}>

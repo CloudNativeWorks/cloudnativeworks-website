@@ -21,9 +21,9 @@ const Contact = () => {
                                     flex: 1,
                                     padding: '1rem',
                                     borderRadius: '0.5rem',
-                                    border: '1px solid var(--glass-border)',
-                                    background: 'rgba(15, 23, 42, 0.5)',
-                                    color: 'white',
+                                    border: '1px solid var(--card-border)',
+                                    background: 'white',
+                                    color: 'var(--text-color)',
                                     outline: 'none'
                                 }}
                             />
@@ -34,9 +34,9 @@ const Contact = () => {
                                     flex: 1,
                                     padding: '1rem',
                                     borderRadius: '0.5rem',
-                                    border: '1px solid var(--glass-border)',
-                                    background: 'rgba(15, 23, 42, 0.5)',
-                                    color: 'white',
+                                    border: '1px solid var(--card-border)',
+                                    background: 'white',
+                                    color: 'var(--text-color)',
                                     outline: 'none'
                                 }}
                             />
@@ -47,9 +47,9 @@ const Contact = () => {
                             style={{
                                 padding: '1rem',
                                 borderRadius: '0.5rem',
-                                border: '1px solid var(--glass-border)',
-                                background: 'rgba(15, 23, 42, 0.5)',
-                                color: 'white',
+                                border: '1px solid var(--card-border)',
+                                background: 'white',
+                                color: 'var(--text-color)',
                                 outline: 'none',
                                 resize: 'vertical'
                             }}
