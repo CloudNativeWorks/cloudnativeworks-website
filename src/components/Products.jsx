@@ -1,8 +1,11 @@
 import React from 'react';
 
-const ProductCard = ({ title, description, link, color }) => (
+const ProductCard = ({ title, description, link, color, logo }) => (
     <div className="glass-panel" style={{ flex: 1, minWidth: '300px', transition: 'transform 0.3s ease' }}>
-        <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: color }}>{title}</h3>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+            {logo && <img src={logo} alt={`${title} logo`} style={{ height: '40px', width: 'auto' }} />}
+            <h3 style={{ fontSize: '1.5rem', margin: 0, color: color }}>{title}</h3>
+        </div>
         <p style={{ color: '#94a3b8', marginBottom: '1.5rem' }}>{description}</p>
         <a href={link} target="_blank" rel="noopener noreferrer" style={{ color: color, fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
             Visit Website <span>&rarr;</span>
@@ -23,12 +26,14 @@ const Products = () => {
                         description="Advanced communication and collaboration platform designed for modern enterprises. Streamline your team's workflow with secure and efficient messaging."
                         link="https://elchi.io"
                         color="var(--accent-color)"
+                        logo="https://www.elchi.io/logo.png"
                     />
                     <ProductCard
                         title="Clustereye.com"
                         description="Comprehensive observability and monitoring solution for Kubernetes clusters. Gain deep insights into your infrastructure performance and health."
                         link="https://clustereye.com"
                         color="var(--secondary-color)"
+                        logo="https://www.clustereye.com/_next/image?url=%2Fclustereye_logo.png&w=256&q=75"
                     />
                 </div>
             </div>
