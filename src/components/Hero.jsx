@@ -58,6 +58,24 @@ const Hero = () => {
             </div>
 
             <style>{`
+                @media (max-width: 768px) {
+                    .container {
+                        padding: 0 1rem !important;
+                    }
+                    h1 {
+                        font-size: 2rem !important;
+                        margin-bottom: 1rem !important;
+                    }
+                    p {
+                        font-size: 1rem !important;
+                        margin-bottom: 1.5rem !important;
+                    }
+                    .btn {
+                        width: 100%;
+                        text-align: center;
+                        padding: 0.9rem 1.2rem !important;
+                    }
+                }
                 @media (max-width: 968px) {
                     .container {
                         grid-template-columns: 1fr !important;
@@ -73,6 +91,7 @@ const Hero = () => {
                     }
                     .container > div:first-child div {
                         justify-content: center;
+                        flex-direction: column;
                     }
                 }
             `}</style>

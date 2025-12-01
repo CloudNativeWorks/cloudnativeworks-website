@@ -3,6 +3,17 @@ import React from 'react';
 const ElchiDetail = () => {
     return (
         <div style={{ paddingTop: '100px', minHeight: '100vh' }}>
+            <style>{`
+                @media (max-width: 768px) {
+                    .container {
+                        padding: 0 1rem !important;
+                    }
+                    img {
+                        max-width: 100%;
+                        height: auto !important;
+                    }
+                }
+            `}</style>
             <div className="container">
                 {/* Hero Section */}
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
