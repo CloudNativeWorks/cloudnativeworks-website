@@ -23,17 +23,17 @@ const Products = () => {
                 <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
                     <ProductCard
                         title="Elchi.io"
-                        description="Advanced communication and collaboration platform designed for modern enterprises. Streamline your team's workflow with secure and efficient messaging."
+                        description="Enterprise Envoy Proxy Management Platform with 3-process distributed architecture, K8s discovery, multi-tenancy, intelligent automation, and comprehensive xDS support. Free and open-source."
                         link="https://elchi.io"
                         color="var(--accent-color)"
                         logo="https://www.elchi.io/logo.png"
                     />
                     <ProductCard
                         title="Clustereye.com"
-                        description="Comprehensive observability and monitoring solution for Kubernetes clusters. Gain deep insights into your infrastructure performance and health."
+                        description="AI-powered database monitoring and management platform for MSSQL, MongoDB, and PostgreSQL with intelligent analytics, cluster control, and automated failover capabilities."
                         link="https://clustereye.com"
                         color="var(--secondary-color)"
-                        logo="https://www.clustereye.com/_next/image?url=%2Fclustereye_logo.png&w=256&q=75"
+                        logo="https://www.clustereye.com/clustereye_logo.png"
                     />
                 </div>
             </div>

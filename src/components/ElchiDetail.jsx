@@ -19,11 +19,11 @@ const ElchiDetail = () => {
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
                     <img src="https://www.elchi.io/logo.png" alt="Elchi.io" style={{ height: '60px', marginBottom: '2rem' }} />
                     <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>
-                        Next-Generation Enterprise Resilience <br />
-                        <span className="gradient-text">and Scalability</span>
+                        Enterprise Envoy Proxy Management Platform <br />
+                        <span className="gradient-text">3-Process Architecture</span>
                     </h1>
                     <p style={{ fontSize: '1.25rem', color: '#94a3b8', maxWidth: '800px', margin: '0 auto' }}>
-                        Modern, high-performance Envoy Control Plane for centralized management
+                        Enterprise-grade Envoy proxy management with distributed architecture, K8s discovery, multi-tenancy, intelligent automation, and comprehensive xDS support
                     </p>
                 </div>
 
@@ -31,10 +31,10 @@ const ElchiDetail = () => {
                 <section className="glass-panel" style={{ marginBottom: '3rem' }}>
                     <h2 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>What is Elchi?</h2>
                     <p style={{ color: '#cbd5e1', lineHeight: 1.8 }}>
-                        Elchi is a modern, high-performance Envoy Control Plane and centralized management platform
-                        designed to simplify and standardize the configuration and operation of Envoy Proxy environments.
-                        It enables organizations to deploy, manage, validate, and distribute Envoy configurations from a
-                        single, secure, and intuitive web interface.
+                        Elchi is an enterprise-grade Envoy proxy management platform with a 3-process distributed architecture (UI, API, Worker).
+                        It provides comprehensive features including intelligent configuration analysis via OpenRouter AI integration (bring your own API key),
+                        Kubernetes auto-discovery, multi-tenancy with 4-tier RBAC, full xDS protocol support, automated health monitoring,
+                        and Web Application Firewall (WAF) with OWASP CRS. Designed for managing Envoy proxies at scale with modern UI and intelligent automation.
                     </p>
                 </section>
 
@@ -43,14 +43,18 @@ const ElchiDetail = () => {
                     <h2 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>Key Features</h2>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
                         {[
-                            { icon: '🎯', title: 'Centralized Envoy Management', desc: 'Manage all Envoy Proxy configurations — Listeners, Clusters, Endpoints, Routes, Filters — from a unified UI.' },
-                            { icon: '✅', title: 'Real-Time Configuration Validation', desc: 'Dual-layer validation (frontend + backend) prevents misconfigurations from reaching production.' },
-                            { icon: '🔄', title: 'Full xDS Protocol Support', desc: 'Built on go-control-plane, Elchi delivers dynamic and incremental configuration updates to all Envoy components.' },
-                            { icon: '📝', title: 'Save & Publish Workflow', desc: 'Safely save, review, test, and publish configuration changes — designed for enterprise release governance.' },
-                            { icon: '🏗️', title: 'Project-Based Architecture', desc: 'Isolate configurations by team or environment (Production / Staging / Test) to avoid conflicts and ensure safe collaboration.' },
-                            { icon: '⚡', title: 'Proto-Driven UI Generation', desc: 'Upload your protobuf files and Elchi automatically generates UI forms based on proto definitions.' },
-                            { icon: '📊', title: 'Dependency Graph Visualization', desc: 'Visual traffic and configuration mapping allows teams to instantly understand service relationships and configuration flow.' },
-                            { icon: '🤖', title: 'Lightweight Agent Support', desc: 'An optional Go-based Agent collects metadata, status information, and ensures reliable configuration distribution.' }
+                            { icon: '🛡️', title: 'Web Application Firewall (WAF)', desc: 'Built-in WAF with OWASP Core Rule Set (CRS) for advanced security protection against common web attacks.' },
+                            { icon: '🏗️', title: '3-Process Distributed Architecture', desc: 'Scalable architecture with UI, API, and Worker processes for enterprise-grade performance and reliability.' },
+                            { icon: '🔄', title: 'Full xDS Protocol Support', desc: 'Comprehensive support for ADS, CDS, EDS, LDS, RDS, and VHDS protocols built on go-control-plane.' },
+                            { icon: '☸️', title: 'Kubernetes Auto-Discovery', desc: 'Automatic discovery and integration with Kubernetes endpoints for seamless service mesh management.' },
+                            { icon: '📋', title: 'Scenario Workflows & Templates', desc: 'Pre-built workflows and templates for common configurations to accelerate deployment and reduce errors.' },
+                            { icon: '💚', title: 'Health Monitoring & Auto-Recovery', desc: 'Continuous health monitoring with automatic recovery mechanisms to ensure high availability.' },
+                            { icon: '👥', title: 'Enterprise Multi-Tenancy', desc: '4-Tier RBAC system (Owner, Admin, Editor, Viewer) with JWT authentication for secure multi-tenant environments.' },
+                            { icon: '🔢', title: 'Multi-Version Envoy Support', desc: 'Support for Envoy versions 1.27 to 1.35+ with version-based routing capabilities.' },
+                            { icon: '🤖', title: 'AI-Powered Configuration Analysis', desc: 'Intelligent configuration analysis and automated log troubleshooting via OpenRouter AI integration (BYOK).' },
+                            { icon: '📊', title: 'Advanced Metrics Visualization', desc: 'Comprehensive metrics visualization using ECharts with VictoriaMetrics integration.' },
+                            { icon: '⚡', title: 'Proto-to-UI Auto-Generation', desc: 'Automatically generate UI forms from protobuf definitions for rapid development.' },
+                            { icon: '🔍', title: 'Audit Logging & Compliance', desc: 'Complete audit trail and compliance tracking for enterprise governance requirements.' }
                         ].map((feature, idx) => (
                             <div key={idx} style={{ padding: '1.5rem', background: 'white', borderRadius: '0.5rem', border: '1px solid var(--card-border)', boxShadow: '0 2px 4px var(--shadow-color)' }}>
                                 <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>{feature.icon}</div>

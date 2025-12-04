@@ -19,11 +19,11 @@ const ClusteryeDetail = () => {
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
                     <img src="/clustereye-logo.png" alt="ClusterEye" style={{ height: '60px', marginBottom: '2rem' }} />
                     <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>
-                        Databases Run Better <br />
-                        <span className="gradient-text">with ClusterEye</span>
+                        Database Monitoring and <br />
+                        <span className="gradient-text">Management Platform</span>
                     </h1>
                     <p style={{ fontSize: '1.25rem', color: '#94a3b8', maxWidth: '800px', margin: '0 auto' }}>
-                        AI-powered database monitoring platform for modern databases
+                        Monitor and manage your MSSQL, MongoDB, and PostgreSQL databases with AI-powered analytics and intelligent agent technology
                     </p>
                 </div>
 
@@ -31,10 +31,10 @@ const ClusteryeDetail = () => {
                 <section className="glass-panel" style={{ marginBottom: '3rem' }}>
                     <h2 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>What is ClusterEye?</h2>
                     <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8 }}>
-                        ClusterEye is a database monitoring platform that enables the observation, analysis and optimization
-                        of modern databases with its cloud-based architecture. Supporting open source databases
-                        MongoDB, PostgreSQL and Microsoft SQL databases in particular, ClusterEye helps companies
-                        manage their data-driven applications more efficiently, securely and with greater performance.
+                        ClusterEye is an AI-powered database monitoring and management platform that enables comprehensive observation,
+                        analysis, and optimization of modern databases. Supporting MSSQL, MongoDB, and PostgreSQL, ClusterEye provides
+                        intelligent configuration analysis, query performance optimization, real-time log analysis, and automated cluster
+                        management with failover capabilities. Built with cloud-based architecture and intelligent agent technology.
                     </p>
                 </section>
 
@@ -61,6 +61,48 @@ const ClusteryeDetail = () => {
                                     ClusterEye for {db.name}
                                 </h3>
                                 <p style={{ color: '#94a3b8', fontSize: '0.9rem', lineHeight: 1.6 }}>{db.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+
+                {/* AI-Powered Analytics */}
+                <section className="glass-panel" style={{ marginBottom: '3rem' }}>
+                    <h2 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>AI-Powered Analytics</h2>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                        {[
+                            { icon: '🧠', title: 'Intelligent Configuration and Best Practice Analysis', desc: 'AI algorithms analyze your database configuration and automatically provide the best configuration recommendations. Get automatic optimization recommendations specific to each database type (MSSQL, MongoDB, PostgreSQL).' },
+                            { icon: '📊', title: 'Query Performance Analysis and Visualization', desc: 'Visualize complex query plans and instantly identify bottlenecks with AI-assisted analysis. Get index recommendations and query optimizations by automatically analyzing execution plans.' },
+                            { icon: '📝', title: 'Real-Time Log Analysis', desc: 'Analyze MongoDB and PostgreSQL logs in real-time. AI algorithms detect potential problems in advance and offer proactive solution recommendations. Automatically classify exception cases and see solutions to similar problems.' },
+                            { icon: '⚡', title: 'Query Optimization with Artificial Intelligence', desc: 'AI models analyze query structure to suggest performance improvements and optimize database operations.' },
+                            { icon: '🔍', title: 'Anomaly Detection and Predictive Analytics', desc: 'AI models learn normal database behavior and quickly detect abnormal activities. Enable proactive planning by predicting future capacity needs and prevent potential performance issues.' },
+                            { icon: '🤖', title: 'Self-Learning Database Assistant', desc: 'Thanks to advanced machine learning algorithms, ClusterEye learns your database usage habits and offers smarter recommendations over time. Get customized, proactive improvement recommendations for each database.' }
+                        ].map((feature, idx) => (
+                            <div key={idx} style={{ padding: '1.5rem', background: 'white', borderRadius: '0.5rem', border: '1px solid var(--card-border)', display: 'flex', gap: '1rem', boxShadow: '0 2px 4px var(--shadow-color)' }}>
+                                <div style={{ fontSize: '2rem', flexShrink: 0 }}>{feature.icon}</div>
+                                <div>
+                                    <h3 style={{ fontSize: '1.2rem', marginBottom: '0.5rem', color: 'var(--secondary-color)' }}>{feature.title}</h3>
+                                    <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7 }}>{feature.desc}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+
+                {/* PostgreSQL Cluster Control */}
+                <section className="glass-panel" style={{ marginBottom: '3rem' }}>
+                    <h2 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>Take Full Control of Your Database Cluster</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
+                        {[
+                            { icon: '🔄', title: 'Automatic Failover', desc: 'Gain automatic failover capabilities not natively available in PostgreSQL. When the primary server fails, the system automatically switches to the standby server, ensuring uninterrupted service delivery.' },
+                            { icon: '📊', title: 'Real-Time Cluster Monitoring', desc: 'Monitor all cluster nodes from a single dashboard. View critical metrics like replication lag, disk usage, and query performance in real-time.' },
+                            { icon: '📈', title: 'Scaling and Management', desc: 'Easily scale your cluster up or down based on your needs. Add, remove, and maintain nodes from the ClusterEye control panel.' },
+                            { icon: '🎯', title: 'PostgreSQL Cluster Control', desc: 'Easily manage and monitor your database clusters with ClusterEye\'s comprehensive control panel and automation features.' }
+                        ].map((feature, idx) => (
+                            <div key={idx} style={{ padding: '1.5rem', background: 'white', borderRadius: '0.5rem', border: '1px solid var(--card-border)', boxShadow: '0 2px 4px var(--shadow-color)' }}>
+                                <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>{feature.icon}</div>
+                                <h3 style={{ fontSize: '1.2rem', marginBottom: '0.75rem', color: 'var(--secondary-color)' }}>{feature.title}</h3>
+                                <p style={{ color: '#94a3b8', fontSize: '0.9rem', lineHeight: 1.6 }}>{feature.desc}</p>
                             </div>
                         ))}
                     </div>

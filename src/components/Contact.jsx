@@ -46,7 +46,7 @@ const Contact = () => {
                 <div className="glass-panel" style={{ padding: '3rem' }}>
                     <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                         {/* Web3Forms Access Key */}
-                        <input type="hidden" name="access_key" value="1035ca59-da81-457d-b54b-4e9827a87dab" />
+                        <input type="hidden" name="access_key" value="395a02c9-8459-402d-8174-b2e939408bde" />
 
                         {/* Optional: Redirect after submission */}
                         <input type="hidden" name="redirect" value="false" />
@@ -140,7 +140,11 @@ const Contact = () => {
                     </form>
                 </div>
 
-                <footer style={{ marginTop: '5rem', color: '#64748b', fontSize: '0.9rem' }}>
+                <footer style={{ marginTop: '5rem', color: '#64748b', fontSize: '0.9rem', textAlign: 'center' }}>
+                    <p style={{ marginBottom: '0.5rem' }}>
+                        Fenerbahçe Mah. İğrip Sk. No: 13 İç Kapı No: 1<br />
+                        Kadıköy / İstanbul
+                    </p>
                     <p>&copy; {new Date().getFullYear()} CloudNativeWorks. All rights reserved.</p>
                 </footer>
             </div>
