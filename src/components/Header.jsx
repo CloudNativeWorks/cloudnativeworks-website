@@ -1,231 +1,305 @@
 import React, { useState, useEffect } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Menu, X, ChevronDown, Database, Network, GitMerge, ShieldCheck } from 'lucide-react';
+
+const productItems = [
+  { name: 'ClusterEye', desc: 'Database Observability & Autonomous DBA', path: '/products/clustereye', icon: Database, logo: '/clustereye-logo.png', color: 'var(--product-clustereye)' },
+  { name: 'Elchi', desc: 'Enterprise Proxy Management', path: '/products/elchi', icon: Network, logo: '/elchi-logo.png', color: 'var(--product-elchi)' },
+  { name: 'MergePilot', desc: 'CI/CD Pipeline Automation', path: '/products/mergepilot', icon: GitMerge, logo: '/mergepilot-logo.png', color: 'var(--product-mergepilot)' },
+  { name: 'CertAutoPilot', desc: 'Certificate Lifecycle Management', path: '/products/certautopilot', icon: ShieldCheck, logo: '/certautopilot-logo.png', color: 'var(--product-certautopilot)' },
+];
+
+const navItems = [
+  { label: 'Solutions', path: '/solutions' },
+  { label: 'Engineering', path: '/engineering' },
+  { label: 'Security', path: '/security' },
+  { label: 'Company', path: '/company' },
+];
 
 const Header = () => {
-    const [scrolled, setScrolled] = useState(false);
-    const [showProductsDropdown, setShowProductsDropdown] = useState(false);
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [showProducts, setShowProducts] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const location = useLocation();
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-    return (
-        <>
-            <header style={{
-                position: 'fixed',
-                top: 0,
-                left: 0,
-                right: 0,
-                zIndex: 1000,
-                padding: '1rem 0',
-                transition: 'all 0.3s ease',
-                background: scrolled ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0.8)',
-                backdropFilter: scrolled ? 'blur(10px)' : 'blur(5px)',
-                borderBottom: scrolled ? '1px solid rgba(0,0,0,0.08)' : 'none',
-                boxShadow: scrolled ? '0 2px 8px rgba(0,0,0,0.1)' : 'none'
-            }}>
-                <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <a href="/" style={{ fontSize: '1.5rem', fontWeight: 'bold', textDecoration: 'none', color: 'inherit' }}>
-                        CloudNative<span className="gradient-text">Works</span>
-                    </a>
+  useEffect(() => {
+    setMobileOpen(false);
+    setMobileProductsOpen(false);
+  }, [location]);
 
-                    {/* Desktop Navigation */}
-                    <nav style={{ display: 'block' }}>
-                        <ul className="desktop-nav" style={{ display: 'flex', listStyle: 'none', gap: '2rem', margin: 0, padding: 0 }}>
-                            <li
-                                style={{ position: 'relative' }}
-                                onMouseEnter={() => setShowProductsDropdown(true)}
-                                onMouseLeave={() => setShowProductsDropdown(false)}
-                            >
-                                <a href="#products" style={{ cursor: 'pointer', paddingBottom: '0.5rem', display: 'inline-block' }}>Products ▾</a>
-                                {showProductsDropdown && (
-                                    <div style={{
-                                        position: 'absolute',
-                                        top: '100%',
-                                        left: 0,
-                                        background: 'white',
-                                        backdropFilter: 'blur(10px)',
-                                        border: '1px solid rgba(0,0,0,0.08)',
-                                        borderRadius: '0.5rem',
-                                        padding: '0.5rem 0',
-                                        minWidth: '150px',
-                                        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-                                        zIndex: 1001
-                                    }}>
-                                        <a href="/elchi" style={{
-                                            display: 'block',
-                                            padding: '0.75rem 1.5rem',
-                                            transition: 'background 0.2s ease',
-                                            cursor: 'pointer',
-                                            textDecoration: 'none',
-                                            color: '#2c3e50'
-                                        }}
-                                            onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255,107,53,0.1)'}
-                                            onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}
-                                        >Elchi</a>
-                                        <a href="/clustereye" style={{
-                                            display: 'block',
-                                            padding: '0.75rem 1.5rem',
-                                            transition: 'background 0.2s ease',
-                                            cursor: 'pointer',
-                                            textDecoration: 'none',
-                                            color: '#2c3e50'
-                                        }}
-                                            onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255,107,53,0.1)'}
-                                            onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}
-                                        >Clustereye</a>
-                                    </div>
-                                )}
-                            </li>
-                            <li><a href="#services">Services</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                        </ul>
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileOpen]);
 
-                        {/* Mobile Hamburger Button */}
-                        <button
-                            className="mobile-menu-btn"
-                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                            style={{
-                                display: 'none',
-                                background: 'none',
-                                border: 'none',
-                                cursor: 'pointer',
-                                padding: '0.5rem',
-                                fontSize: '1.5rem',
-                                color: 'var(--text-color)'
-                            }}
-                            aria-label="Toggle menu"
-                        >
-                            {mobileMenuOpen ? '✕' : '☰'}
-                        </button>
-                    </nav>
-                </div>
-            </header>
+  const navLinkStyle = ({ isActive }) => ({
+    color: isActive ? 'var(--text-primary)' : 'var(--text-secondary)',
+    fontSize: '0.875rem',
+    fontWeight: 500,
+    transition: 'color 0.2s ease',
+    textDecoration: 'none',
+    padding: '0.5rem 0',
+  });
 
-            {/* Mobile Menu Drawer */}
-            <div style={{
-                position: 'fixed',
-                top: 0,
-                right: mobileMenuOpen ? 0 : '-100%',
-                width: '80%',
-                maxWidth: '300px',
-                height: '100vh',
-                background: 'white',
-                boxShadow: mobileMenuOpen ? '-2px 0 10px rgba(0,0,0,0.1)' : 'none',
-                transition: 'right 0.3s ease',
-                zIndex: 999,
-                padding: '5rem 2rem 2rem',
-                overflowY: 'auto'
-            }}>
-                <nav>
-                    <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                        <li style={{ marginBottom: '1.5rem' }}>
-                            <a
-                                href="#products"
-                                onClick={() => setMobileMenuOpen(false)}
-                                style={{
-                                    fontSize: '1.1rem',
-                                    color: 'var(--text-color)',
-                                    textDecoration: 'none',
-                                    display: 'block',
-                                    padding: '0.5rem 0'
-                                }}
-                            >
-                                Products
-                            </a>
-                            <ul style={{ listStyle: 'none', padding: '0.5rem 0 0 1rem', margin: 0 }}>
-                                <li style={{ marginBottom: '0.75rem' }}>
-                                    <a
-                                        href="/elchi"
-                                        onClick={() => setMobileMenuOpen(false)}
-                                        style={{
-                                            color: 'var(--text-secondary)',
-                                            textDecoration: 'none'
-                                        }}
-                                    >
-                                        Elchi
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="/clustereye"
-                                        onClick={() => setMobileMenuOpen(false)}
-                                        style={{
-                                            color: 'var(--text-secondary)',
-                                            textDecoration: 'none'
-                                        }}
-                                    >
-                                        Clustereye
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li style={{ marginBottom: '1.5rem' }}>
-                            <a
-                                href="#services"
-                                onClick={() => setMobileMenuOpen(false)}
-                                style={{
-                                    fontSize: '1.1rem',
-                                    color: 'var(--text-color)',
-                                    textDecoration: 'none',
-                                    display: 'block',
-                                    padding: '0.5rem 0'
-                                }}
-                            >
-                                Services
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#contact"
-                                onClick={() => setMobileMenuOpen(false)}
-                                style={{
-                                    fontSize: '1.1rem',
-                                    color: 'var(--text-color)',
-                                    textDecoration: 'none',
-                                    display: 'block',
-                                    padding: '0.5rem 0'
-                                }}
-                            >
-                                Contact
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+  return (
+    <>
+      <header style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 1000,
+        height: 'var(--nav-height)',
+        display: 'flex',
+        alignItems: 'center',
+        transition: 'all 0.3s ease',
+        background: scrolled ? 'rgba(10, 10, 15, 0.9)' : 'rgba(10, 10, 15, 0.6)',
+        backdropFilter: 'blur(16px)',
+        WebkitBackdropFilter: 'blur(16px)',
+        borderBottom: scrolled ? '1px solid var(--border-subtle)' : '1px solid transparent',
+      }}>
+        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+          {/* Logo */}
+          <Link to="/" style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+            CloudNative<span style={{ color: 'var(--accent-primary)' }}>Works</span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <nav className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-8)' }}>
+            {/* Products Dropdown */}
+            <div
+              style={{ position: 'relative' }}
+              onMouseEnter={() => setShowProducts(true)}
+              onMouseLeave={() => setShowProducts(false)}
+            >
+              <button style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '4px',
+                background: 'none',
+                border: 'none',
+                color: location.pathname.startsWith('/products') ? 'var(--text-primary)' : 'var(--text-secondary)',
+                fontSize: '0.875rem',
+                fontWeight: 500,
+                cursor: 'pointer',
+                padding: '0.5rem 0',
+                fontFamily: 'var(--font-main)',
+                transition: 'color 0.2s ease',
+              }}>
+                Products
+                <ChevronDown size={14} style={{ transition: 'transform 0.2s', transform: showProducts ? 'rotate(180deg)' : 'rotate(0)' }} />
+              </button>
+
+              {/* Dropdown */}
+              <div style={{
+                position: 'absolute',
+                top: 'calc(100% + 8px)',
+                left: '-16px',
+                background: 'var(--bg-tertiary)',
+                border: '1px solid var(--border-primary)',
+                borderRadius: 'var(--card-radius)',
+                padding: 'var(--space-3)',
+                minWidth: '320px',
+                boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
+                opacity: showProducts ? 1 : 0,
+                visibility: showProducts ? 'visible' : 'hidden',
+                transform: showProducts ? 'translateY(0)' : 'translateY(-8px)',
+                transition: 'all 0.2s ease',
+                pointerEvents: showProducts ? 'auto' : 'none',
+              }}>
+                <Link to="/products" style={{
+                  display: 'block',
+                  padding: '0.625rem 0.75rem',
+                  borderRadius: '8px',
+                  fontSize: '0.8125rem',
+                  fontWeight: 600,
+                  color: 'var(--text-secondary)',
+                  textDecoration: 'none',
+                  transition: 'all 0.15s ease',
+                  marginBottom: '4px',
+                }}
+                  onMouseEnter={e => { e.currentTarget.style.background = 'var(--bg-elevated)'; e.currentTarget.style.color = 'var(--text-primary)'; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--text-secondary)'; }}
+                >
+                  All Products
+                </Link>
+                <div style={{ height: '1px', background: 'var(--border-subtle)', margin: '4px 0' }} />
+                {productItems.map((item) => (
+                  <Link key={item.path} to={item.path} style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.75rem',
+                    padding: '0.625rem 0.75rem',
+                    borderRadius: '8px',
+                    textDecoration: 'none',
+                    transition: 'all 0.15s ease',
+                  }}
+                    onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-elevated)'}
+                    onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+                  >
+                    <div style={{
+                      width: '32px',
+                      height: '32px',
+                      borderRadius: '8px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0,
+                      overflow: 'hidden',
+                    }}>
+                      <img src={item.logo} alt={item.name} style={{ width: '28px', height: '28px', objectFit: 'contain' }} />
+                    </div>
+                    <div>
+                      <div style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-primary)' }}>{item.name}</div>
+                      <div style={{ fontSize: '0.75rem', color: 'var(--text-tertiary)', marginTop: '1px' }}>{item.desc}</div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
 
-            {/* Mobile Menu Overlay */}
-            {mobileMenuOpen && (
-                <div
-                    onClick={() => setMobileMenuOpen(false)}
-                    style={{
-                        position: 'fixed',
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
-                        background: 'rgba(0,0,0,0.5)',
-                        zIndex: 998
-                    }}
-                />
-            )}
+            {navItems.map(item => (
+              <NavLink key={item.path} to={item.path} style={navLinkStyle}>
+                {item.label}
+              </NavLink>
+            ))}
 
-            <style>{`
-                @media (max-width: 768px) {
-                    .desktop-nav {
-                        display: none !important;
-                    }
-                    .mobile-menu-btn {
-                        display: block !important;
-                    }
-                }
-            `}</style>
-        </>
-    );
+            <Link to="/contact" className="btn btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.8125rem' }}>
+              Contact
+            </Link>
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="mobile-menu-btn"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            style={{
+              display: 'none',
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              padding: '0.5rem',
+              color: 'var(--text-primary)',
+            }}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
+      </header>
+
+      {/* Mobile Overlay */}
+      {mobileOpen && (
+        <div
+          onClick={() => setMobileOpen(false)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            background: 'rgba(0,0,0,0.6)',
+            zIndex: 998,
+          }}
+        />
+      )}
+
+      {/* Mobile Drawer */}
+      <div style={{
+        position: 'fixed',
+        top: 0,
+        right: 0,
+        width: '85%',
+        maxWidth: '320px',
+        height: '100vh',
+        background: 'var(--bg-secondary)',
+        borderLeft: '1px solid var(--border-primary)',
+        transform: mobileOpen ? 'translateX(0)' : 'translateX(100%)',
+        transition: 'transform 0.3s ease',
+        zIndex: 999,
+        padding: 'calc(var(--nav-height) + var(--space-4)) var(--space-6) var(--space-6)',
+        overflowY: 'auto',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 'var(--space-2)',
+      }}>
+        {/* Mobile Products Section */}
+        <div>
+          <button
+            onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              width: '100%',
+              background: 'none',
+              border: 'none',
+              color: 'var(--text-primary)',
+              fontSize: '1rem',
+              fontWeight: 600,
+              padding: '0.75rem 0',
+              cursor: 'pointer',
+              fontFamily: 'var(--font-main)',
+            }}
+          >
+            Products
+            <ChevronDown size={16} style={{ transition: 'transform 0.2s', transform: mobileProductsOpen ? 'rotate(180deg)' : 'rotate(0)' }} />
+          </button>
+          {mobileProductsOpen && (
+            <div style={{ paddingLeft: 'var(--space-4)', display: 'flex', flexDirection: 'column', gap: 'var(--space-1)' }}>
+              <Link to="/products" style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', padding: '0.5rem 0', textDecoration: 'none', fontWeight: 500 }}>
+                All Products
+              </Link>
+              {productItems.map((item) => (
+                <Link key={item.path} to={item.path} style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  color: 'var(--text-secondary)',
+                  fontSize: '0.875rem',
+                  padding: '0.5rem 0',
+                  textDecoration: 'none',
+                }}>
+                  <img src={item.logo} alt={item.name} style={{ width: '18px', height: '18px', objectFit: 'contain' }} />
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {navItems.map(item => (
+          <Link key={item.path} to={item.path} style={{
+            color: 'var(--text-primary)',
+            fontSize: '1rem',
+            fontWeight: 600,
+            padding: '0.75rem 0',
+            textDecoration: 'none',
+            borderTop: '1px solid var(--border-subtle)',
+          }}>
+            {item.label}
+          </Link>
+        ))}
+
+        <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: 'var(--space-4)', marginTop: 'var(--space-2)' }}>
+          <Link to="/contact" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
+            Contact
+          </Link>
+        </div>
+      </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .desktop-nav { display: none !important; }
+          .mobile-menu-btn { display: block !important; }
+        }
+      `}</style>
+    </>
+  );
 };
 
 export default Header;

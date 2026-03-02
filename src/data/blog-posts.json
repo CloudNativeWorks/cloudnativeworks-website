@@ -1,0 +1,56 @@
+[
+  {
+    "id": "1",
+    "slug": "autonomous-query-optimizer",
+    "title": "How We Built ClusterEye's Autonomous Query Optimizer",
+    "date": "2026-02-15",
+    "author": "CloudNativeWorks Engineering",
+    "category": "Engineering",
+    "excerpt": "A deep dive into the ML pipeline behind ClusterEye's autonomous query optimization — from feature extraction to production deployment."
+  },
+  {
+    "id": "2",
+    "slug": "xds-at-scale",
+    "title": "xDS at Scale: Managing 500+ Envoy Proxies with Elchi",
+    "date": "2026-02-01",
+    "author": "CloudNativeWorks Engineering",
+    "category": "Engineering",
+    "excerpt": "How Elchi's 3-process architecture handles xDS control plane operations for large Envoy fleet deployments."
+  },
+  {
+    "id": "3",
+    "slug": "certificate-rotation-zero-downtime",
+    "title": "Certificate Rotation Without Downtime: A CertAutoPilot Deep Dive",
+    "date": "2026-01-20",
+    "author": "CloudNativeWorks Engineering",
+    "category": "Infrastructure Insights",
+    "excerpt": "Exploring the technical challenges of zero-downtime certificate rotation and how CertAutoPilot solves them."
+  },
+  {
+    "id": "4",
+    "slug": "protocol-level-integration",
+    "title": "Why We Chose Protocol-Level Integration Over API Wrapping",
+    "date": "2026-01-10",
+    "author": "CloudNativeWorks Engineering",
+    "category": "Engineering",
+    "excerpt": "The architectural decisions behind our protocol-native approach and why it matters for infrastructure products."
+  },
+  {
+    "id": "5",
+    "slug": "deterministic-cicd",
+    "title": "Deterministic CI/CD: Eliminating Pipeline Flakiness with MergePilot",
+    "date": "2025-12-18",
+    "author": "CloudNativeWorks Engineering",
+    "category": "Product Updates",
+    "excerpt": "How deterministic builds and policy-driven merges can transform your deployment workflow."
+  },
+  {
+    "id": "6",
+    "slug": "air-gapped-infrastructure",
+    "title": "Building Air-Gapped Infrastructure Products",
+    "date": "2025-12-05",
+    "author": "CloudNativeWorks Engineering",
+    "category": "Infrastructure Insights",
+    "excerpt": "The engineering challenges of building infrastructure software that runs without any external connectivity."
+  }
+]

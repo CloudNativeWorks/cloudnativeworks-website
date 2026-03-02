@@ -1,82 +1,55 @@
-import React, { useState, useEffect } from 'react';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import Products from './components/Products';
-import Services from './components/Services';
-import Contact from './components/Contact';
-import ElchiDetail from './components/ElchiDetail';
-import ClusteryeDetail from './components/ClusteryeDetail';
+import React, { lazy, Suspense } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+
+const HomePage = lazy(() => import('./pages/HomePage'));
+const ProductsPage = lazy(() => import('./pages/ProductsPage'));
+const ClusterEyePage = lazy(() => import('./pages/ClusterEyePage'));
+const ElchiPage = lazy(() => import('./pages/ElchiPage'));
+const MergePilotPage = lazy(() => import('./pages/MergePilotPage'));
+const CertAutoPilotPage = lazy(() => import('./pages/CertAutoPilotPage'));
+const SolutionsPage = lazy(() => import('./pages/SolutionsPage'));
+const EngineeringPage = lazy(() => import('./pages/EngineeringPage'));
+const SecurityPage = lazy(() => import('./pages/SecurityPage'));
+const CompanyPage = lazy(() => import('./pages/CompanyPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
+const BlogPage = lazy(() => import('./pages/BlogPage'));
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('home');
-
-  useEffect(() => {
-    const path = window.location.pathname;
-    if (path === '/elchi') {
-      setCurrentPage('elchi');
-    } else if (path === '/clustereye') {
-      setCurrentPage('clustereye');
-    } else {
-      setCurrentPage('home');
-    }
-
-    // Handle browser back/forward
-    const handlePopState = () => {
-      const path = window.location.pathname;
-      if (path === '/elchi') {
-        setCurrentPage('elchi');
-      } else if (path === '/clustereye') {
-        setCurrentPage('clustereye');
-      } else {
-        setCurrentPage('home');
-      }
-    };
-
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
-  }, []);
-
-  // Intercept link clicks
-  useEffect(() => {
-    const handleClick = (e) => {
-      const target = e.target.closest('a');
-      if (target && target.getAttribute('href') === '/elchi') {
-        e.preventDefault();
-        window.history.pushState({}, '', '/elchi');
-        setCurrentPage('elchi');
-      } else if (target && target.getAttribute('href') === '/clustereye') {
-        e.preventDefault();
-        window.history.pushState({}, '', '/clustereye');
-        setCurrentPage('clustereye');
-      } else if (target && target.getAttribute('href') === '/') {
-        e.preventDefault();
-        window.history.pushState({}, '', '/');
-        setCurrentPage('home');
-      }
-    };
-
-    document.addEventListener('click', handleClick);
-    return () => document.removeEventListener('click', handleClick);
-  }, []);
-
   return (
-    <div className="App">
-      <Header />
-      <main>
-        {currentPage === 'elchi' ? (
-          <ElchiDetail />
-        ) : currentPage === 'clustereye' ? (
-          <ClusteryeDetail />
-        ) : (
-          <>
-            <Hero />
-            <Products />
-            <Services />
-            <Contact />
-          </>
-        )}
-      </main>
-    </div>
+    <BrowserRouter>
+      <Suspense fallback={
+        <div style={{
+          minHeight: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          background: '#0A0A0F',
+          color: '#A0A0B8',
+          fontFamily: 'Inter, sans-serif'
+        }}>
+          Loading...
+        </div>
+      }>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route index element={<HomePage />} />
+            <Route path="products" element={<ProductsPage />} />
+            <Route path="products/clustereye" element={<ClusterEyePage />} />
+            <Route path="products/elchi" element={<ElchiPage />} />
+            <Route path="products/mergepilot" element={<MergePilotPage />} />
+            <Route path="products/certautopilot" element={<CertAutoPilotPage />} />
+            <Route path="solutions" element={<SolutionsPage />} />
+            <Route path="engineering" element={<EngineeringPage />} />
+            <Route path="security" element={<SecurityPage />} />
+            <Route path="company" element={<CompanyPage />} />
+            <Route path="contact" element={<ContactPage />} />
+            <Route path="blog" element={<BlogPage />} />
+            <Route path="*" element={<HomePage />} />
+          </Route>
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
   );
 }
 

@@ -5,19 +5,38 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Empowering Your Cloud Native Journey</title>
+  <title>CloudNativeWorks | Engineering the Control Plane for Modern Infrastructure</title>
+  <meta name="description" content="CloudNativeWorks builds infrastructure control layer technologies. Database observability, proxy management, CI/CD automation, and certificate lifecycle management." />
+  <meta property="og:title" content="CloudNativeWorks | Engineering the Control Plane for Modern Infrastructure" />
+  <meta property="og:description" content="Purpose-built infrastructure products for observability, automation, and control. Enterprise-ready. Air-gapped capable." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://cloudnativeworks.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CloudNativeWorks | Engineering the Control Plane for Modern Infrastructure" />
+  <meta name="twitter:description" content="Purpose-built infrastructure products for observability, automation, and control." />
+  <link rel="canonical" href="https://cloudnativeworks.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
 </head>
 
 <body>
   <div id="root">
-    <div style="color: white; font-family: sans-serif; text-align: center; padding-top: 50px;">
+    <div style="color: #A0A0B8; font-family: 'Inter', sans-serif; text-align: center; padding-top: 50px; background: #0A0A0F; min-height: 100vh;">
       Loading CloudNativeWorks...
     </div>
   </div>
+  <script>
+    // GitHub Pages SPA redirect handler
+    (function(){
+      var redirect = sessionStorage.redirect;
+      delete sessionStorage.redirect;
+      if (redirect && redirect !== location.href) {
+        history.replaceState(null, null, redirect);
+      }
+    })();
+  </script>
   <script type="module" src="/src/main.jsx"></script>
-
-
-
 </body>
 
 </html>
