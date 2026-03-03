@@ -46,7 +46,7 @@ const ClusterEyePage = () => (
       subtitle="AI-powered observability for PostgreSQL, MongoDB, MSSQL, and ClickHouse. Autonomous query optimization, predictive anomaly detection, and automated failover — without requiring a dedicated DBA."
     >
       <div style={{ display: 'flex', gap: 'var(--space-4)', justifyContent: 'center', marginTop: 'var(--space-8)', flexWrap: 'wrap' }}>
-        <a href="https://clustereye.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">
+        <a href="https://www.clustereye.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">
           Visit ClusterEye.com <ArrowRight size={16} />
         </a>
         <Link to="/contact" className="btn btn-ghost btn-lg">Request a Demo</Link>
@@ -134,7 +134,7 @@ const ClusterEyePage = () => (
       title="Take Control of Your Database Infrastructure"
       subtitle="See how ClusterEye can reduce your operational burden while improving database reliability."
       primaryText="Visit ClusterEye.com"
-      primaryTo="https://clustereye.com"
+      primaryTo="https://www.clustereye.com"
       secondaryText="Talk to Engineering"
       secondaryTo="/contact"
     />

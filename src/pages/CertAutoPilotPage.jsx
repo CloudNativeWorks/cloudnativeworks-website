@@ -29,10 +29,10 @@ const CertAutoPilotPage = () => (
       subtitle="Automated certificate issuance, rotation, and revocation. Never let an expired certificate cause an outage again. Compliance-ready audit trails included."
     >
       <div style={{ display: 'flex', gap: 'var(--space-4)', justifyContent: 'center', marginTop: 'var(--space-8)', flexWrap: 'wrap' }}>
-        <Link to="/contact" className="btn btn-primary btn-lg">
-          Request Early Access <ArrowRight size={16} />
-        </Link>
-        <Link to="/products" className="btn btn-ghost btn-lg">All Products</Link>
+        <a href="https://www.certautopilot.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">
+          Visit certautopilot.com <ArrowRight size={16} />
+        </a>
+        <Link to="/contact" className="btn btn-ghost btn-lg">Contact Us</Link>
       </div>
     </PageHero>
 
@@ -138,9 +138,11 @@ const CertAutoPilotPage = () => (
 
     <CTASection
       title="Stop Tracking Certificates in Spreadsheets"
-      subtitle="Get early access to CertAutoPilot and automate your certificate lifecycle."
-      primaryText="Request Early Access"
-      primaryTo="/contact"
+      subtitle="Automate your certificate lifecycle with CertAutoPilot."
+      primaryText="Visit certautopilot.com"
+      primaryTo="https://www.certautopilot.com"
+      secondaryText="Contact Us"
+      secondaryTo="/contact"
     />
   </>
 );

@@ -20,9 +20,13 @@ const CTASection = ({
       <h2 style={{ marginBottom: 'var(--space-4)' }}>{title}</h2>
       <p style={{ color: 'var(--text-secondary)', marginBottom: 'var(--space-8)', fontSize: '1.0625rem' }}>{subtitle}</p>
       <div style={{ display: 'flex', gap: 'var(--space-4)', justifyContent: 'center', flexWrap: 'wrap' }}>
-        <Link to={primaryTo} className="btn btn-primary btn-lg">{primaryText}</Link>
+        {primaryTo.startsWith('http') ? (
+          <a href={primaryTo} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">{primaryText}</a>
+        ) : (
+          <Link to={primaryTo} className="btn btn-primary btn-lg">{primaryText}</Link>
+        )}
         {secondaryText && (
-          secondaryExternal ? (
+          (secondaryExternal || secondaryTo.startsWith('http')) ? (
             <a href={secondaryTo} target="_blank" rel="noopener noreferrer" className="btn btn-ghost btn-lg">{secondaryText}</a>
           ) : (
             <Link to={secondaryTo} className="btn btn-ghost btn-lg">{secondaryText}</Link>

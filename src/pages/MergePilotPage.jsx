@@ -35,10 +35,10 @@ const MergePilotPage = () => (
       subtitle="Automate merge workflows, enforce pipeline policies, and eliminate manual CI/CD bottlenecks. Deterministic builds. Production-safe deployments."
     >
       <div style={{ display: 'flex', gap: 'var(--space-4)', justifyContent: 'center', marginTop: 'var(--space-8)', flexWrap: 'wrap' }}>
-        <Link to="/contact" className="btn btn-primary btn-lg">
-          Request Early Access <ArrowRight size={16} />
-        </Link>
-        <Link to="/products" className="btn btn-ghost btn-lg">All Products</Link>
+        <a href="https://www.merge-pilot.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">
+          Visit merge-pilot.com <ArrowRight size={16} />
+        </a>
+        <Link to="/contact" className="btn btn-ghost btn-lg">Contact Us</Link>
       </div>
     </PageHero>
 
@@ -96,9 +96,11 @@ const MergePilotPage = () => (
 
     <CTASection
       title="Ready to Eliminate Pipeline Bottlenecks?"
-      subtitle="Get early access to MergePilot and see how deterministic pipelines change your deployment workflow."
-      primaryText="Request Early Access"
-      primaryTo="/contact"
+      subtitle="See how deterministic pipelines change your deployment workflow."
+      primaryText="Visit merge-pilot.com"
+      primaryTo="https://www.merge-pilot.com"
+      secondaryText="Contact Us"
+      secondaryTo="/contact"
     />
   </>
 );

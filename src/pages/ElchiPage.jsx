@@ -45,7 +45,7 @@ const ElchiPage = () => (
       subtitle="Centralized control plane for Envoy proxy fleets. 3-process distributed architecture, full xDS protocol support, WAF with OWASP CRS, and Kubernetes auto-discovery."
     >
       <div style={{ display: 'flex', gap: 'var(--space-4)', justifyContent: 'center', marginTop: 'var(--space-8)', flexWrap: 'wrap' }}>
-        <a href="https://elchi.io" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">
+        <a href="https://www.elchi.io" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">
           Visit Elchi.io <ArrowRight size={16} />
         </a>
         <Link to="/contact" className="btn btn-ghost btn-lg">Request a Demo</Link>
@@ -131,7 +131,7 @@ const ElchiPage = () => (
       title="Modernize Your Proxy Infrastructure"
       subtitle="See how Elchi can replace your legacy load balancer appliances with a modern, scalable control plane."
       primaryText="Visit Elchi.io"
-      primaryTo="https://elchi.io"
+      primaryTo="https://www.elchi.io"
       secondaryText="Talk to Engineering"
       secondaryTo="/contact"
     />
