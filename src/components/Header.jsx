@@ -67,8 +67,8 @@ const Header = () => {
       }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
           {/* Logo */}
-          <Link to="/" style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-            CloudNative<span style={{ color: 'var(--accent-primary)' }}>Works</span>
+          <Link to="/" style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)', textDecoration: 'none' }}>
+            CloudNative<span className="gradient-text">Works</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -97,22 +97,26 @@ const Header = () => {
                 <ChevronDown size={14} style={{ transition: 'transform 0.2s', transform: showProducts ? 'rotate(180deg)' : 'rotate(0)' }} />
               </button>
 
-              {/* Dropdown */}
-              <div style={{
+              {/* Dropdown with bridge area to prevent close on gap */}
+              <div className="products-dropdown" style={{
                 position: 'absolute',
-                top: 'calc(100% + 8px)',
+                top: '100%',
                 left: '-16px',
+                paddingTop: '8px',
+                opacity: showProducts ? 1 : 0,
+                visibility: showProducts ? 'visible' : 'hidden',
+                transition: 'opacity 0.2s ease, visibility 0.2s ease',
+                pointerEvents: showProducts ? 'auto' : 'none',
+              }}>
+              <div style={{
                 background: 'var(--bg-tertiary)',
                 border: '1px solid var(--border-primary)',
                 borderRadius: 'var(--card-radius)',
                 padding: 'var(--space-3)',
                 minWidth: '320px',
                 boxShadow: '0 8px 32px rgba(0,0,0,0.08)',
-                opacity: showProducts ? 1 : 0,
-                visibility: showProducts ? 'visible' : 'hidden',
                 transform: showProducts ? 'translateY(0)' : 'translateY(-8px)',
-                transition: 'all 0.2s ease',
-                pointerEvents: showProducts ? 'auto' : 'none',
+                transition: 'transform 0.2s ease',
               }}>
                 <Link to="/products" style={{
                   display: 'block',
@@ -162,6 +166,7 @@ const Header = () => {
                     </div>
                   </Link>
                 ))}
+              </div>
               </div>
             </div>
 

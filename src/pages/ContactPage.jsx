@@ -13,6 +13,7 @@ const ContactPage = () => {
     setFormStatus('');
 
     const formData = new FormData(e.target);
+    formData.set('replyto', formData.get('email'));
 
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
@@ -83,9 +84,10 @@ const ContactPage = () => {
             {/* Right: Form */}
             <div className="card" style={{ padding: 'var(--space-8)' }}>
               <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
-                <input type="hidden" name="access_key" value="395a02c9-8459-402d-8174-b2e939408bde" />
+                <input type="hidden" name="access_key" value="74769466-65c1-462a-bdf7-359d3995b9ee" />
                 <input type="hidden" name="redirect" value="false" />
-                <input type="hidden" name="subject" value="New Contact from CloudNativeWorks" />
+                <input type="hidden" name="subject" value="New Contact from CloudNativeWorks Website" />
+                <input type="hidden" name="from_name" value="CloudNativeWorks Contact Form" />
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-4)' }}>
                   <div>

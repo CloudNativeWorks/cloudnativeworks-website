@@ -12,7 +12,7 @@ const Footer = () => {
           {/* Brand Column */}
           <div>
             <Link to="/" style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)', textDecoration: 'none' }}>
-              CloudNative<span style={{ color: 'var(--accent-primary)' }}>Works</span>
+              CloudNative<span className="gradient-text">Works</span>
             </Link>
             <p style={{ marginTop: 'var(--space-4)', color: 'var(--text-tertiary)', fontSize: '0.875rem', lineHeight: 1.6, maxWidth: '280px' }}>
               Engineering the Control Plane for Modern Infrastructure. Purpose-built products for observability, automation, and control.

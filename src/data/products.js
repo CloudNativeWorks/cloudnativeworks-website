@@ -62,7 +62,7 @@ export const products = [
     icon: GitMerge,
     logo: '/mergepilot-logo.png',
     path: '/products/mergepilot',
-    externalUrl: null,
+    externalUrl: 'https://merge-pilot.com',
     features: [
       { title: 'Automated Merge Workflows', desc: 'Define and enforce merge policies across repositories. Automatic validation, approval routing, and conflict detection.' },
       { title: 'Pipeline Orchestration', desc: 'Orchestrate complex multi-stage pipelines with dependency management, parallel execution, and rollback capabilities.' },
@@ -82,7 +82,7 @@ export const products = [
     icon: ShieldCheck,
     logo: '/certautopilot-logo.png',
     path: '/products/certautopilot',
-    externalUrl: null,
+    externalUrl: 'https://certautopilot.com',
     features: [
       { title: 'Automated Certificate Issuance', desc: 'Automatic provisioning of SSL/TLS certificates from multiple CAs including ACME-compatible providers and internal PKI.' },
       { title: 'Lifecycle Rotation', desc: 'Proactive certificate rotation before expiration with zero-downtime deployment across your infrastructure.' },
