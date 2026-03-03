@@ -11,9 +11,9 @@ const PageHero = ({ label, title, subtitle, logo, logoAlt, children }) => (
     <div style={{
       position: 'absolute',
       inset: 0,
-      backgroundImage: 'radial-gradient(circle, rgba(42,42,60,0.3) 1px, transparent 1px)',
+      backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.05) 1px, transparent 1px)',
       backgroundSize: '32px 32px',
-      opacity: 0.4,
+      opacity: 1,
     }} />
     <div className="container" style={{ position: 'relative', zIndex: 1, textAlign: 'center', maxWidth: '800px' }}>
       {logo && (

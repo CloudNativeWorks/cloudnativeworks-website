@@ -1,44 +1,44 @@
 /* ═══════════════════════════════════════════════════════════════
    CloudNativeWorks Design System
-   Dark Enterprise Theme
+   Light Corporate Theme — White & Black
    ═══════════════════════════════════════════════════════════════ */
 
 /* ─── Design Tokens ─── */
 :root {
-  /* Dark Theme Core */
-  --bg-primary:        #0A0A0F;
-  --bg-secondary:      #111118;
-  --bg-tertiary:       #1A1A24;
-  --bg-elevated:       #222230;
+  /* Light Theme Core */
+  --bg-primary:        #FFFFFF;
+  --bg-secondary:      #F7F8FA;
+  --bg-tertiary:       #FFFFFF;
+  --bg-elevated:       #F0F1F4;
 
   /* Borders */
-  --border-primary:    #2A2A3C;
-  --border-subtle:     #1E1E2E;
-  --border-hover:      #3A3A50;
+  --border-primary:    #E0E2E8;
+  --border-subtle:     #ECEDF1;
+  --border-hover:      #C8CBD4;
 
   /* Text */
-  --text-primary:      #F0F0F5;
-  --text-secondary:    #A0A0B8;
-  --text-tertiary:     #6B6B80;
-  --text-inverse:      #0A0A0F;
+  --text-primary:      #111827;
+  --text-secondary:    #4B5563;
+  --text-tertiary:     #9CA3AF;
+  --text-inverse:      #FFFFFF;
 
-  /* Accent: Engineering Blue */
-  --accent-primary:    #3B82F6;
-  --accent-hover:      #2563EB;
-  --accent-muted:      rgba(59, 130, 246, 0.12);
-  --accent-glow:       rgba(59, 130, 246, 0.25);
+  /* Accent: Corporate Blue */
+  --accent-primary:    #2563EB;
+  --accent-hover:      #1D4ED8;
+  --accent-muted:      rgba(37, 99, 235, 0.07);
+  --accent-glow:       rgba(37, 99, 235, 0.15);
 
   /* Signal Colors */
-  --signal-green:      #22C55E;
-  --signal-amber:      #F59E0B;
-  --signal-red:        #EF4444;
-  --signal-cyan:       #06B6D4;
+  --signal-green:      #16A34A;
+  --signal-amber:      #D97706;
+  --signal-red:        #DC2626;
+  --signal-cyan:       #0891B2;
 
   /* Product Brand Colors */
-  --product-clustereye:    #8B5CF6;
-  --product-elchi:         #3B82F6;
-  --product-mergepilot:    #22C55E;
-  --product-certautopilot: #F59E0B;
+  --product-clustereye:    #7C3AED;
+  --product-elchi:         #2563EB;
+  --product-mergepilot:    #16A34A;
+  --product-certautopilot: #D97706;
 
   /* Typography */
   --font-main:         'Inter', system-ui, -apple-system, sans-serif;
@@ -166,7 +166,7 @@ code, .mono {
   background: var(--accent-hover);
   color: #ffffff;
   transform: translateY(-1px);
-  box-shadow: 0 4px 16px var(--accent-glow);
+  box-shadow: 0 4px 12px var(--accent-glow);
 }
 
 .btn-ghost {
@@ -177,7 +177,7 @@ code, .mono {
 
 .btn-ghost:hover {
   border-color: var(--border-hover);
-  background: var(--bg-tertiary);
+  background: var(--bg-secondary);
   color: var(--text-primary);
 }
 
@@ -200,7 +200,7 @@ code, .mono {
 }
 
 .card-interactive:hover {
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 /* ─── Badges ─── */
@@ -214,11 +214,11 @@ code, .mono {
   font-weight: 500;
   background: var(--accent-muted);
   color: var(--accent-primary);
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(37, 99, 235, 0.15);
 }
 
 .badge-neutral {
-  background: var(--bg-tertiary);
+  background: var(--bg-secondary);
   color: var(--text-secondary);
   border-color: var(--border-primary);
 }
@@ -232,7 +232,7 @@ code, .mono {
 }
 
 .gradient-text-accent {
-  background: linear-gradient(135deg, #3B82F6, #06B6D4);
+  background: linear-gradient(135deg, #2563EB, #0891B2);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -245,7 +245,7 @@ input, textarea, select {
   padding: 0.875rem 1rem;
   border-radius: var(--btn-radius);
   border: 1px solid var(--border-primary);
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
   color: var(--text-primary);
   outline: none;
   transition: border-color 0.2s ease;
@@ -367,7 +367,7 @@ input:focus, textarea:focus {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-primary);
+  background: var(--bg-secondary);
 }
 
 ::-webkit-scrollbar-thumb {

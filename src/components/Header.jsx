@@ -60,7 +60,7 @@ const Header = () => {
         display: 'flex',
         alignItems: 'center',
         transition: 'all 0.3s ease',
-        background: scrolled ? 'rgba(10, 10, 15, 0.9)' : 'rgba(10, 10, 15, 0.6)',
+        background: scrolled ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0.7)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
         borderBottom: scrolled ? '1px solid var(--border-subtle)' : '1px solid transparent',
@@ -107,7 +107,7 @@ const Header = () => {
                 borderRadius: 'var(--card-radius)',
                 padding: 'var(--space-3)',
                 minWidth: '320px',
-                boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
+                boxShadow: '0 8px 32px rgba(0,0,0,0.08)',
                 opacity: showProducts ? 1 : 0,
                 visibility: showProducts ? 'visible' : 'hidden',
                 transform: showProducts ? 'translateY(0)' : 'translateY(-8px)',
@@ -202,7 +202,7 @@ const Header = () => {
           style={{
             position: 'fixed',
             inset: 0,
-            background: 'rgba(0,0,0,0.6)',
+            background: 'rgba(0,0,0,0.2)',
             zIndex: 998,
           }}
         />

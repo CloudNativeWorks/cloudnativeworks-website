@@ -24,8 +24,8 @@ function App() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          background: '#0A0A0F',
-          color: '#A0A0B8',
+          background: '#FFFFFF',
+          color: '#4B5563',
           fontFamily: 'Inter, sans-serif'
         }}>
           Loading...

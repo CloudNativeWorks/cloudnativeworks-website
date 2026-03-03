@@ -26,9 +26,9 @@ const Hero = () => (
     <div style={{
       position: 'absolute',
       inset: 0,
-      backgroundImage: 'radial-gradient(circle, rgba(42,42,60,0.4) 1px, transparent 1px)',
+      backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.06) 1px, transparent 1px)',
       backgroundSize: '32px 32px',
-      opacity: 0.5,
+      opacity: 1,
     }} />
     <div style={{
       position: 'absolute',
@@ -36,8 +36,8 @@ const Hero = () => (
       left: '20%',
       width: '400px',
       height: '400px',
-      background: 'radial-gradient(circle, rgba(59,130,246,0.08), transparent 70%)',
-      filter: 'blur(60px)',
+      background: 'radial-gradient(circle, rgba(37,99,235,0.05), transparent 70%)',
+      filter: 'blur(80px)',
       pointerEvents: 'none',
     }} />
     <div style={{
@@ -46,8 +46,8 @@ const Hero = () => (
       right: '15%',
       width: '350px',
       height: '350px',
-      background: 'radial-gradient(circle, rgba(139,92,246,0.06), transparent 70%)',
-      filter: 'blur(60px)',
+      background: 'radial-gradient(circle, rgba(124,58,237,0.04), transparent 70%)',
+      filter: 'blur(80px)',
       pointerEvents: 'none',
     }} />
 
